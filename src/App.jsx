@@ -20,7 +20,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import AboutMePage from "./pages/AboutMePage";
 import { useState } from "react";
-//import CharacterDetailPage from "./pages/CharacterDetailPage";
+import CharacterDetailPage from "./pages/CharacterDetailPage";
 import ErrorPage from "./pages/ErrorPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
@@ -36,9 +36,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutMePage />} />
-          {/*<Route path="/characters" element={ <CharacterListPage/> }/>
+        {/*   <Route path="/characters" element={ <CharacterListPage/> }/> */}
   <Route path="/characters/:characterId" element={ <CharacterDetailPage/> }/>
-   <Route path="/characters/:characterId/edit" element={  <EditCharacterPagePage/> }/>*/}
+  {/*  <Route path="/characters/:characterId/edit" element={  <EditCharacterPagePage/> }/> */}
           {/*   <Route path="/characters/create" element={ <CreateCharacterPagePage/> }/> */}
           {/*   <Route path="/prisons" element={ <PrisonListPagePage/> }/> */}
           {/*  <Route path="/seasons" element={ <SeasonListPage/> }/>
