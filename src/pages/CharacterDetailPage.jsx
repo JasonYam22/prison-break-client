@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import EditCharacterPage from "./EditCharacterPage";
 
 function CharacterDetailPage() {
   const { characterId } = useParams();
@@ -8,6 +9,8 @@ function CharacterDetailPage() {
 
   const [character, setCharacter] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+
 
   useEffect(() => {
     getCharacter();
@@ -50,9 +53,12 @@ function CharacterDetailPage() {
     }
   };
 
-  if (isLoading) {
+ const handleEditButton = () => {
+      navigate(`/characters/${characterId}/edit`)
+ }
+ if (isLoading) {
     return <h2>Loading...</h2>;
-  }
+ }
 
   return (
     <div>
@@ -64,6 +70,9 @@ function CharacterDetailPage() {
       <h1>Role: {character.role}</h1>
       <h3>Description: {character.description}</h3>
       <button onClick={handleDeleteButton}>Delete</button>
+            <button onClick={handleEditButton}>Edit</button>
+
+
     </div>
   );
 }

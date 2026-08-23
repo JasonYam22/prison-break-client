@@ -22,6 +22,7 @@ setAllCharacters(response.data)
 
 } catch (error) {
     console.log(error)
+    
 }
 }
 if (isLoading) return <h3>Loading...</h3>

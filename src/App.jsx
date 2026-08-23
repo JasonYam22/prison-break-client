@@ -17,6 +17,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 //import Searchbar from "./components/Searchbar";
 import CharacterListPage from "./pages/CharacterListPage";
+import EditCharacterPage from "./pages/EditCharacterPage";
 import HomePage from "./pages/HomePage";
 import AboutMePage from "./pages/AboutMePage";
 import { useState } from "react";
@@ -35,7 +36,7 @@ function App() {
           <Route path="/about" element={<AboutMePage />} />
            <Route path="/characters" element={ <CharacterListPage/> }/> 
   <Route path="/characters/:characterId" element={ <CharacterDetailPage/> }/>
-  {/*  <Route path="/characters/:characterId/edit" element={  <EditCharacterPagePage/> }/> */}
+    <Route path="/characters/:characterId/edit" element={  <EditCharacterPage/> }/> 
           {/*   <Route path="/characters/create" element={ <CreateCharacterPagePage/> }/> */}
           {/*   <Route path="/prisons" element={ <PrisonListPagePage/> }/> */}
           {/*  <Route path="/seasons" element={ <SeasonListPage/> }/>
