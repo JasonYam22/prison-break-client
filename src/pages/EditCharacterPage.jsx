@@ -15,16 +15,16 @@ function EditCharacterPage() {
 
       useEffect(() =>{
  getData()  
-      },[])
+      },[characterId])
 
       const getData = async() => {
         try{
-            const response = await axios.get(`https://localHost:5005/characters/${characterId}`)
+            const response = await axios.get(`http://localhost:5005/characters/${characterId}`)
         console.log(response.data)
-        setName(response.data.name)
+         setName(response.data.name)
         setAge(response.data.age)
         setRole(response.data.role)
-        setDescription(response.data.description)
+        setDescription(response.data.description) 
         } catch (error) {
             console.log(error)
         }
@@ -32,9 +32,17 @@ function EditCharacterPage() {
  
       const handleSubmitButton = async (e) => {
         e.preventDefault();
-      
 
 try {
+  const body = {
+    name,
+    age,
+    role,
+    description
+  }
+
+  const response = await axios.put (`http://localhost:5005/characters/${characterId}`, body)
+  navigate(`/characters/${characterId}`)
 
 } catch (error) {
     console.log(error)
@@ -80,16 +88,7 @@ try {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        
-        <label>Description:</label>
-        <textarea
-          type="text"
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
-        <button onClick={handleSubmitButton} type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
 
     </div>

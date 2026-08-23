@@ -5,13 +5,10 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 {
   /*import CreateCharacterPage from "./pages/CreateCharacterPage";
-
-import EditCharacterPage from "./pages/EditCharacterPage";
-import PrisonListPage from "./pages/PrisonListPage";
-import SeasonListPage from "./pages/SeasonListPage";
 import SeasonDetailPage from "./pages/SeasonDetailPage";*/
 }
-
+import SeasonListPage from "./pages/SeasonListPage";
+import PrisonListPage from "./pages/PrisonListPage";
 import Navbar from "./components/Navbar";
 //import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
@@ -37,10 +34,10 @@ function App() {
            <Route path="/characters" element={ <CharacterListPage/> }/> 
   <Route path="/characters/:characterId" element={ <CharacterDetailPage/> }/>
     <Route path="/characters/:characterId/edit" element={  <EditCharacterPage/> }/> 
-          {/*   <Route path="/characters/create" element={ <CreateCharacterPagePage/> }/> */}
-          {/*   <Route path="/prisons" element={ <PrisonListPagePage/> }/> */}
-          {/*  <Route path="/seasons" element={ <SeasonListPage/> }/>
-  <Route path="/seasons/:seasonId" element={ <SeasonDetailPage/> }/> */}
+          {/*   <Route path="/characters/create" element={ <CreateCharacterPage/> }/> */}
+            <Route path="/prisons" element={ <PrisonListPage/> }/> 
+            <Route path="/seasons" element={ <SeasonListPage/> }/>
+ {/*  <Route path="/seasons/:seasonId" element={ <SeasonDetailPage/> }/>  */}
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/error" element={<ErrorPage />} />
         </Routes>
