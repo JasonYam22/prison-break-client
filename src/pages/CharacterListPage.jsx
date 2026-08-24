@@ -4,7 +4,7 @@ import axios from "axios"
 //import CreateCharacterPage from "./CreateCharacterPage"
 import CharacterDetailPage from "./CharacterDetailPage"
 
-function CharacterListPage () {
+function CharacterListPage ({query}) {
 
     const [ allCharacters, setAllCharacters] = useState([])
     const [ isLoading, setIsLoading] = useState(true)
@@ -27,12 +27,18 @@ setAllCharacters(response.data)
 if (isLoading) return <h3>Loading...</h3>
 
 return(
+     
     <div className="character-list">
+<div className="create-button">
+<Link to={"/characters/create"}>
+<button>Create character</button>
+</Link>
+</div>
 {allCharacters.map((character) => {
     return (
         <div key={character.id} className="character-card">
             <h2>{character.name}</h2>
-<img src={character.image} alt={character.name} height="50px"/>
+<img src={character.image} height="100px"/>
 <p>{character.role}</p>
 
 <Link to={`/characters/${character.id}`}>

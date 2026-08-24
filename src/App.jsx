@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 //import FilterSeason from "./components/FilterSeason";
 
-//import CreateCharacterPage from "./pages/CreateCharacterPage";
+import CreateCharacterPage from "./pages/CreateCharacterPage";
 import SeasonDetailPage from "./pages/SeasonDetailPage";
 import SeasonListPage from "./pages/SeasonListPage"; 
 import PrisonListPage from "./pages/PrisonListPage";
@@ -38,7 +38,7 @@ function App() {
             path="/characters/:characterId/edit"
             element={<EditCharacterPage />}
           />
-          {/*   <Route path="/characters/create" element={ <CreateCharacterPage/> }/> */}
+            <Route path="/characters/create" element={ <CreateCharacterPage/> }/> 
           <Route path="/prisons" element={<PrisonListPage />} />
            <Route path="/seasons" element={ <SeasonListPage/> }/> 
             <Route path="/seasons/:seasonId" element={ <SeasonDetailPage/> }/>  

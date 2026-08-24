@@ -42,7 +42,7 @@ try {
   }
 
   const response = await axios.put (`http://localhost:5005/characters/${characterId}`, body)
-  navigate(`/characters/${characterId}`)
+  navigate("/characters")
 
 } catch (error) {
     console.log(error)

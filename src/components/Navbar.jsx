@@ -6,7 +6,7 @@ function Navbar() {
 const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav>
+    <nav className="navbar">
         <Link to="/" className="title-nav">PRISON BREAK</Link>
     
     <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
