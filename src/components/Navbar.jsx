@@ -12,16 +12,8 @@ const [menuOpen, setMenuOpen] = useState(false)
     <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
     {menuOpen && (
         <div>
-            <Link to="/seasons/1">Season 1</Link>
-            <br />
-            <Link to="/seasons/2">Season 2</Link>
-            <br />
-            <Link to="/seasons/3">Season 3</Link>
-            <br />
-            <Link to="/seasons/4">Season 4</Link>
-            <br />
-            <Link to="/seasons/5">Season 5</Link>
-            <br />
+            <Link to="/seasons">Seasons</Link>
+            <br/>
             <Link to="/about">About</Link>
         </div>
     )}
