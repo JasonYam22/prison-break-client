@@ -10,7 +10,7 @@ import PrisonListPage from "./pages/PrisonListPage";
 import Navbar from "./components/Navbar";
 //import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-//import Searchbar from "./components/Searchbar";
+import Searchbar from "./components/Searchbar";
 import CharacterListPage from "./pages/CharacterListPage";
 import EditCharacterPage from "./pages/EditCharacterPage";
 import HomePage from "./pages/HomePage";

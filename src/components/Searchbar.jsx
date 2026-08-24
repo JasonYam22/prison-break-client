@@ -5,7 +5,6 @@ function Searchbar({ query, setQuery }) {
 
   return (
     <div className="search-bar">
-      <h2>Search Bar</h2>
       <input
         type="text"
         placeholder="Search character..."

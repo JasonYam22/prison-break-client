@@ -12,7 +12,8 @@ function EditCharacterPage() {
     const [ age, setAge ] = useState("")
      const [ role, setRole ] = useState("")
       const [ description, setDescription ] = useState("")
-
+const [ image, setImage] = useState("")
+      
       useEffect(() =>{
  getData()  
       },[characterId])
@@ -20,11 +21,12 @@ function EditCharacterPage() {
       const getData = async() => {
         try{
             const response = await axios.get(`http://localhost:5005/characters/${characterId}`)
-        console.log(response.data)
+        //console.log(response.data)
          setName(response.data.name)
         setAge(response.data.age)
         setRole(response.data.role)
         setDescription(response.data.description) 
+        setImage(response.data.image)
         } catch (error) {
             console.log(error)
         }
@@ -36,6 +38,7 @@ function EditCharacterPage() {
 try {
   const body = {
     name,
+    image,
     age,
     role,
     description
@@ -60,6 +63,14 @@ try {
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+        />
+
+ <label>Image:</label>
+        <textarea
+          type="text"
+          name="image"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
         />
 
         <label>Age:</label>
