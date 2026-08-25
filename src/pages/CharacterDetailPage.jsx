@@ -45,7 +45,7 @@ function CharacterDetailPage() {
     } catch (error) {
       console.log(error);
 
-      if (error.response.status === 404) {
+      if (error.status && error.response.status === 404) {
         navigate("/not-found");
       } else {
         navigate("/error");
