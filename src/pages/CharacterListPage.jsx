@@ -1,8 +1,8 @@
-import { useState, useEffect, createElement } from "react";
+import { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Searchbar from "../components/Searchbar";
-import CharacterDetailPage from "./CharacterDetailPage";
+import CharacterCard from "../components/CharacterCard";
 
 function CharacterListPage() {
   const [allCharacters, setAllCharacters] = useState([]);
@@ -29,29 +29,18 @@ function CharacterListPage() {
   });
 
   return (
-    <div className="character-list">
-        <br />
-          <div className="create-button">
+  <div>
+   <div className="flex justify-start items-center gap-8 p-4">
+        
               <Link to={"/characters/create"}>
-                <button>Create character</button>
+                <button className="bg-green-900 text-white px-6 py-2 rounded-full font-semibold border border-green-700 shadow-md hover:bg-green-700 hover:scale-105 transition">ADD CHARACTER</button>
               </Link>
-            </div>
-<br />
       <Searchbar query={query} setQuery={setQuery} />
-
-      {filterCharacters.map(({id, name, image, role}) => {
-        return (
-          <div key={id} className="character-card">
-            <h2>{name}</h2>
-            <img src={image} height="200px" />
-            <p>{role}</p>
-
-            <Link to={`/characters/${id}`}>
-              <button>View details</button>
-            </Link>
-          </div>
-        );
+</div>
+    <div className="grid grid-cols-5 gap-8 p-4">{filterCharacters.map((character) => {
+       return <CharacterCard key={character.id} character={character} />
       })}
+    </div>
     </div>
   );
 }

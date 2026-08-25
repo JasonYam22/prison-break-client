@@ -6,7 +6,6 @@ function HomePage() {
 
     return(
         <div className="home-page">
-
 <div className="header-logo">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu6U2sIVmS4odBfzsIj8koZI7_CHbOw2_TwHlWcWfnJg&s=10" alt="Prison Break" className="logo" />
 </div>

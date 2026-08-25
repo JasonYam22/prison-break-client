@@ -1,10 +1,10 @@
 function Footer() {
   return (
-    <div>
+    <footer className="border-t border-gray-700 text-center text-sm text-gray-400 p-4">
       
-      <p>FOOTER</p>
+  FOOOOOOTER
       
-    </div>
+    </footer>
   )
 }
 

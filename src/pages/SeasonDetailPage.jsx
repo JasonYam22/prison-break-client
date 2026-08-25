@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import CharacterCard from "../components/CharacterCard";
 
 function SeasonDetailPage() {
   const { seasonId } = useParams();
@@ -54,11 +55,11 @@ console.log("seasonCharacters:", seasonCharacters);
       <h2>{season.episodeCount}</h2>
       <p>{season.description}</p>
       <h3>Included in this season:</h3>
-      <ul>
+      <div className="character-list">
         {seasonCharacters.map((character) => {
-          return <li key={character.id}>{character.name}</li>;
+          return <CharacterCard key={character.id} character={character} />
         })}
-      </ul>
+      </div>
     </div>
   );
 }

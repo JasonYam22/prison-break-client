@@ -1,6 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import CharacterCard from "../components/CharacterCard";
 
 function SeasonListPage() {
   const navigate = useNavigate();

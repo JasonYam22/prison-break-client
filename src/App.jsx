@@ -22,10 +22,11 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App min-h-screen bg-neutral-950 text-white flex flex-col">
       {/*<Sidebar/>*/}
       <BrowserRouter>
         <Navbar />
+        <main className="flex-grow">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutMePage />} />
@@ -45,9 +46,11 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/error" element={<ErrorPage />} />
         </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
 
-      <Footer />
+     
     </div>
   );
 }
