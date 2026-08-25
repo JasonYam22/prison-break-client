@@ -49,13 +49,13 @@ console.log("seasonCharacters:", seasonCharacters);
 
 
   return (
-    <div className="season-detail-page">
-      <h2>{season.title}</h2>
-      <h2>{season.year}</h2>
-      <h2>{season.episodeCount}</h2>
-      <p>{season.description}</p>
-      <h3>Included in this season:</h3>
-      <div className="character-list">
+    <div className="flex flex-col pt-4 text-center">
+      <h2 className="font-extrabold text-orange-300">{season.title}</h2>
+      <h2><span className="font-extrabold text-orange-300">Year:</span> {season.year}</h2>
+      <h2><span className="font-extrabold text-orange-300">Episodes:</span> {season.episodeCount}</h2>
+      <p className="text-2xs"><span className="font-extrabold text-orange-300">Description:</span> {season.description}</p>
+      <h3 className="pt-8 text-2xl font-bold text-orange-300">Included in this season:</h3>
+      <div className="grid grid-cols-4 gap-8 p-4">
         {seasonCharacters.map((character) => {
           return <CharacterCard key={character.id} character={character} />
         })}

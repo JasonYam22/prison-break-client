@@ -61,9 +61,7 @@ function CharacterDetailPage() {
  }
 
   return (
-    <div>
-      <h2>More Details</h2>
-
+    <div className="flex flex-col">
       <img src={character.image} alt="character" height="150px" />
       <h1>Name: {character.name}</h1>
       <h1>Age: {character.age}</h1>

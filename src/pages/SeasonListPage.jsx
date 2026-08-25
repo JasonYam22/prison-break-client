@@ -31,15 +31,15 @@ function SeasonListPage() {
   if (isLoading) return <h3>Loading...</h3>;
 
   return (
-    <div className="season-card">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4 mx-auto">
       {allSeasons.map((season) => {
         return (
-          <div key={season.id} className="season-card">
+          <div key={season.id} className="flex flex-col items-start gap-2">
             <h2>{season.title}</h2>
             <h3>Year: {season.year}</h3>
             <h3>Episodes: {season.episodeCount}</h3>
 
-        <Link to={`/seasons/${season.id}`}>Season {season.id} details</Link>
+        <Link to={`/seasons/${season.id}`} className="w-fit px-2 py-0 border rounded-full text-blue-700  border-blue-300 shadow-md hover:bg-blue-300 hover:scale-105 transition">Season {season.id} details</Link>
           </div>
         );
       })}
