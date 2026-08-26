@@ -20,7 +20,7 @@ const [ image, setImage] = useState("")
 
       const getData = async() => {
         try{
-            const response = await axios.get(`http://localhost:5005/characters/${characterId}`)
+         const response = await axios.get(`${import.meta.env.VITE_API_URL}/characters/${characterId}`)
         //console.log(response.data)
          setName(response.data.name)
         setAge(response.data.age)
@@ -44,7 +44,7 @@ try {
     description
   }
 
-  const response = await axios.put (`http://localhost:5005/characters/${characterId}`, body)
+const response = await axios.put (`${import.meta.env.VITE_API_URL}/characters/${characterId}`, body)
   navigate("/characters")
 
 } catch (error) {

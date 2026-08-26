@@ -15,7 +15,7 @@ function SeasonListPage() {
 
   const getAllSeasons = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/seasons");
+     const response = await axios.get(`${import.meta.env.VITE_API_URL}/seasons`);
       setAllSeasons(response.data);
       setIsLoading(false);
     } catch (error) {

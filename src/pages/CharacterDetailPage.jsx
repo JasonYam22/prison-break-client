@@ -21,7 +21,7 @@ function CharacterDetailPage() {
 
     try {
       const response = await axios.get(
-        `http://localhost:5005/characters/${characterId}`,
+   `${import.meta.env.VITE_API_URL}/characters/${characterId}`,
       );
 
       //console.log(response)
@@ -40,7 +40,7 @@ function CharacterDetailPage() {
 
   const handleDeleteButton = async () => {
     try {
-      await axios.delete(`http://localhost:5005/characters/${characterId}`);
+  await axios.delete(`${import.meta.env.VITE_API_URL}/characters/${characterId}`);
       navigate("/characters")
     } catch (error) {
       console.log(error);

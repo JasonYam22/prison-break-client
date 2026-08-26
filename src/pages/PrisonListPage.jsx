@@ -12,7 +12,7 @@ function PrisonListPage() {
 
   const getAllPrisons = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/prisons");
+     const response = await axios.get(`${import.meta.env.VITE_API_URL}/prisons`);
       setAllPrisons(response.data);
       setIsLoading(false);
     } catch (error) {

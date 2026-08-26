@@ -24,7 +24,7 @@ function createCharacterPage() {
       };
 
       const response = await axios.post(
-        "http://localhost:5005/characters",
+      `${import.meta.env.VITE_API_URL}/characters`,
         body,
       );
       navigate("/characters");

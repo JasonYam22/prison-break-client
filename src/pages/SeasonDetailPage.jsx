@@ -18,11 +18,11 @@ function SeasonDetailPage() {
   const getSeasonData = async () => {
     try {
       const seasonResponse = await axios.get(
-        `http://localhost:5005/seasons/${seasonId}`,
+     `${import.meta.env.VITE_API_URL}/seasons/${seasonId}`,
       );
 
       const characterResponse = await axios.get(
-        "http://localhost:5005/characters",
+      `${import.meta.env.VITE_API_URL}/characters`,
       );
       setSeason(seasonResponse.data);
       setAllCharacters(characterResponse.data);

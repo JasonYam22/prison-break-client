@@ -15,7 +15,7 @@ function CharacterListPage() {
 
   const getAllCharacters = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/characters");
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/characters`);
       setAllCharacters(response.data);
       setIsLoading(false);
     } catch (error) {
