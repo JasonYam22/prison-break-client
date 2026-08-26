@@ -36,7 +36,7 @@ function CharacterListPage() {
             ADD CHARACTER
           </button>
         </Link>
-        <Searchbar className="mr-10"query={query} setQuery={setQuery} />
+        <Searchbar query={query} setQuery={setQuery} />
       </div>
       <div className="grid grid-cols-5 gap-8 p-4">
         {filterCharacters.map((character) => {
