@@ -13,7 +13,6 @@ const [menuOpen, setMenuOpen] = useState(false)
     <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
     {menuOpen && (
         <div className="absolute top-20 right-4 bg-gray-800 border border-white flex flex-col justify-start">
-            <Link to="/seasons" className="px-2 py-1 hover:bg-gray-700 text-sm">Seasons</Link>
             <Link to="/about" className="px-2 py-2 hover:bg-gray-700 text-sm">About</Link>
         </div>
     )}
