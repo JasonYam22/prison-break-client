@@ -3,81 +3,101 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function createCharacterPage() {
-
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
-  const [ image, setImage] = useState("")
+  const [image, setImage] = useState("");
   const [age, setAge] = useState("");
   const [role, setRole] = useState("");
   const [description, setDescription] = useState("");
 
-const handleSubmitButton = async (e) => {
-    e.preventDefault()
+  const handleSubmitButton = async (e) => {
+    e.preventDefault();
 
     try {
-        const body = {
-            name: name,
-            image: image,
-            age: age,
-            role: role,
-            description: description
-        }
+      const body = {
+        name: name,
+        image: image,
+        age: age,
+        role: role,
+        description: description,
+      };
 
-        const response = await axios.post("http://localhost:5005/characters", body)
-navigate("/characters")
-
+      const response = await axios.post(
+        "http://localhost:5005/characters",
+        body,
+      );
+      navigate("/characters");
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-}
+  };
 
   return (
-    <div className="create-character">
-      {<h3>Create character</h3>}
+    <div className="bg-gray-800 border border-green-800 rounded-2xl p-6
+     text-white w-150 mx-auto mt-10 mb-10 flex flex-col">
 
-      <form onSubmit={handleSubmitButton}>
-        <label>Name:</label>
+    <h3 className="text-2xl font-bold mb-6 text-center text-orange-500">Edit Profile</h3>
+
+ <form onSubmit={handleSubmitButton} className="space-y-1">
+
+  <div className="flex flex-col">
+        <label className="font-bold text-orange-500 mb-1">Name:</label>
         <input
           type="text"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="w-full bg-gray border border-gray-700 rounded-3xl p-2 text-white"
+          
         />
-<br />
-         <label>Image:</label>
+</div>
+<div className="flex flex-col">
+ <label className="font-bold text-orange-500 mb-1">Image:</label>
         <textarea
           type="text"
           name="image"
           value={image}
           onChange={(e) => setImage(e.target.value)}
+          className="w-full bg-gray border border-gray-700 rounded-3xl p-1 text-white"
         />
-<br />
-        <label>Age:</label>
+</div>
+<div className="flex flex-col">
+        <label className="font-bold text-orange-500 mb-1">Age:</label>
         <textarea
           type="text"
           name="age"
           value={age}
           onChange={(e) => setAge(e.target.value)}
+           className="w-full bg-gray border border-gray-700 rounded-3xl p-1 text-white"
         />
-<br />
-        <label>Role:</label>
+</div>
+     <div className="flex flex-col">
+        <label className="font-bold text-orange-500 mb-1">Role:</label>
         <textarea
           type="text"
           name="role"
           value={role}
           onChange={(e) => setRole(e.target.value)}
+           className="w-full bg-gray border border-gray-700 rounded-3xl p-1 text-white"
         />
-<br />
-        <label>Description:</label>
+</div>   
+
+<div className="flex flex-col">
+        <label className="font-bold text-orange-500 mb-1">Description:</label>
         <textarea
+        rows="5"
           type="text"
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+           className="w-full bg-gray border border-gray-700 rounded-3xl p-1 text-white resize-none overflow-y-auto"
         />
-
-        <button type="submit">Submit</button>
+</div>
+<div className="flex justify-center">
+        <button className=" border border-black pl-12 pr-12 pt-2 pb-2 mt-4 hover:bg-green-200 bg-green-500 rounded-3xl  "
+         type="submit">Submit</button>
+</div>
       </form>
     </div>
   );

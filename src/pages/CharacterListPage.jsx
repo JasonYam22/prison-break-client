@@ -30,13 +30,13 @@ function CharacterListPage() {
 
   return (
     <div>
-      <div className="flex justify-start items-center gap-8 p-4">
+      <div className="flex justify-center items-center gap-8 p-4">
         <Link to={"/characters/create"}>
           <button className="bg-green-900 text-white px-6 py-2 rounded-full font-semibold border border-green-700 shadow-md hover:bg-green-700 hover:scale-105 transition">
             ADD CHARACTER
           </button>
         </Link>
-        <Searchbar query={query} setQuery={setQuery} />
+        <Searchbar className="mr-10"query={query} setQuery={setQuery} />
       </div>
       <div className="grid grid-cols-5 gap-8 p-4">
         {filterCharacters.map((character) => {

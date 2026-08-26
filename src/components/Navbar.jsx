@@ -6,7 +6,7 @@ function Navbar() {
 const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="relative flex justify-between items-center p-4 border-b border-amber-50 text-4xl">
+    <nav className="relative flex justify-between items-center p-4 border-b border-amber-50 prison-font text-3xl">
       <div className="w-8"></div>
   <Link to="/" className="title-nav font-['Rubik_Mono_One'] text-2xl tracking-wide uppercase">PRISON BREAK</Link>
     

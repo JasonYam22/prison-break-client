@@ -74,8 +74,8 @@ function CharacterDetailPage() {
       </div>
        </div>
       <h3 className="mt-6 pt-4 border-t border-black-100"><span className="text-orange-500 font-bold">Description: </span>{character.description}</h3>
-      <div className="flex justify-center mt-7">
-      <button onClick={handleDeleteButton} className="mr-16 border border-black rounded-2xl bg-red-800 text-black font-bold pl-3 pr-3 pt-1 pb-1 hover:bg-red-400">Delete</button>
+      <div className="flex justify-center mt-7 ml-9">
+      <button onClick={handleDeleteButton} className="mr-16 border border-black rounded-2xl bg-red-800 text-black font-bold pl-3 pr-3 pt-1 pb-1 hover:bg-red-200">Delete</button>
             <button onClick={handleEditButton} className="mr-16 border border-white rounded-2xl bg-green-800 text-black font-bold pl-6 pr-6 pt-1 pb-1 hover:bg-green-400">Edit</button>
             </div>
     </div>

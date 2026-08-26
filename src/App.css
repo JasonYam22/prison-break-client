@@ -1,1 +1,21 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@theme {
+--font-sans: 'Oswald', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #030712;
+  color: #ffffff;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+textarea {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

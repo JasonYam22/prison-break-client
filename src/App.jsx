@@ -26,7 +26,7 @@ function App() {
       {/*<Sidebar/>*/}
       <BrowserRouter>
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-row">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutMePage />} />

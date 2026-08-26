@@ -37,9 +37,9 @@ to="/seasons" className="rounded-full px-30 py-2 hover:bg-gray-600 hover:scale-1
         </div>
       </div>
 
-      <div className="description-section max-w-2x1">
-        <h1 className="text-2x1 font-bold mb-3">WHAT IS PRISON BREAK ABOUT?</h1>
-        <p className="leading relaxed text-white">
+      <div className="description-section max-w-2x1 pt-6">
+        <h1 className="text-2x1 font-bold mb-6 text-orange-500">WHAT IS PRISON BREAK ABOUT?</h1>
+        <p className="leading-relaxed text-white text-2xl">
           {" "}
           Prison Break follows Michael Scofield, a structural engineer who
           deliberately commits a robbery to get himself incarcerated at Fox
