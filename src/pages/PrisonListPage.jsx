@@ -13,7 +13,9 @@ function PrisonListPage() {
 
   const getAllPrisons = async () => {
     try {
-     const response = await axios.get(`${import.meta.env.VITE_API_URL}/prisons`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/prisons`,
+      );
       setAllPrisons(response.data);
       setIsLoading(false);
     } catch (error) {
@@ -21,12 +23,12 @@ function PrisonListPage() {
     }
   };
   if (isLoading) {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <CircleLoader color="#f97316" size={60} />
-    </div>
-  );
-}
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircleLoader color="#f97316" size={60} />
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4 mx-auto">
@@ -34,7 +36,7 @@ function PrisonListPage() {
         return (
           <div
             key={prison.id}
-            className="grid  gap-8 p-4 border border-white-700 shadow-md"
+            className="grid  gap-8 p-4 border border-white-700 shadow-md rounded-3xl"
           >
             <h2 className="flex justify-center font-extrabold items-center text-center h-48 text-2xl text-orange-500">
               {prison.name}

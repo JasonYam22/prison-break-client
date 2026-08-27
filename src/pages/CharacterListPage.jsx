@@ -16,20 +16,22 @@ function CharacterListPage() {
 
   const getAllCharacters = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/characters`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/characters`,
+      );
       setAllCharacters(response.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
- if (isLoading) {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <CircleLoader color="#f97316" size={60} />
-    </div>
-  );
-}
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircleLoader color="#f97316" size={60} />
+      </div>
+    );
+  }
 
   const filterCharacters = allCharacters.filter((character) => {
     return character.name.toLowerCase().includes(query.toLowerCase());
@@ -37,7 +39,7 @@ function CharacterListPage() {
 
   return (
     <div>
-      <div className="flex justify-center items-center gap-8 p-10">
+      <div className="flex justify-center items-center gap-6 p-8">
         <Link to={"/characters/create"}>
           <button className="bg-green-900 text-white px-6 py-2 rounded-full font-semibold border border-green-700 shadow-md hover:bg-green-700 hover:scale-115 transition-all duration-300">
             ADD CHARACTER
@@ -45,7 +47,7 @@ function CharacterListPage() {
         </Link>
         <Searchbar query={query} setQuery={setQuery} />
       </div>
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid grid-cols-4 gap-12 px-20">
         {filterCharacters.map((character) => {
           return <CharacterCard key={character.id} character={character} />;
         })}

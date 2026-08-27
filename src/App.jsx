@@ -1,14 +1,11 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-
-//import FilterSeason from "./components/FilterSeason";
 import CharacterCard from "./components/CharacterCard";
 import CreateCharacterPage from "./pages/CreateCharacterPage";
 import SeasonDetailPage from "./pages/SeasonDetailPage";
 import SeasonListPage from "./pages/SeasonListPage";
 import PrisonListPage from "./pages/PrisonListPage";
 import Navbar from "./components/Navbar";
-//import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Searchbar from "./components/Searchbar";
 import CharacterListPage from "./pages/CharacterListPage";

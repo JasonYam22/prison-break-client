@@ -10,7 +10,11 @@ body {
   font-family: var(--font-sans);
   background-color: #030712;
   color: #ffffff;
-}
+}  
+
+
+
+
 
 html {
   font-size: 130.5%; /* entspricht ca. 18px statt 16px Basis */

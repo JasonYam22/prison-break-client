@@ -16,7 +16,9 @@ function SeasonListPage() {
 
   const getAllSeasons = async () => {
     try {
-     const response = await axios.get(`${import.meta.env.VITE_API_URL}/seasons`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/seasons`,
+      );
       setAllSeasons(response.data);
       setIsLoading(false);
     } catch (error) {
@@ -29,26 +31,31 @@ function SeasonListPage() {
       }
     }
   };
-if (isLoading) {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <CircleLoader color="#f97316" size={60} />
-    </div>
-  );
-}
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircleLoader color="#f97316" size={60} />
+      </div>
+    );
+  }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 max-w-6xl mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-20 max-w-6xl mx-auto">
       {allSeasons.map((season) => {
         return (
-         
-          <div key={season.id} className="flex flex-col items-center text-center gap-2 border border-gray-700 py-6 px-4 rounded-xl h-auto w-64 bg-gray-900 hover:scale-110 shadow-lg hover:bg-blue-700 hover:border-blue-500 transition-all duration-300">
+          <div
+            key={season.id}
+            className="flex flex-col items-center text-center mt-15 border border-orange-300 py-8 rounded-full h-auto w-full bg-zinc-800 hover:scale-110 shadow-lg hover:bg-blue-500 hover:border-orange-300 transition-all duration-300"
+          >
             <Link to={`/seasons/${season.id}`}>
-            <h2 className="text-2xl text-white font-bold tracking-wide">{season.title}</h2>
-            <h3 className="text-sm text-gray-400">Year: {season.year}</h3>
-            <h3 className="text-sm text-gray-400">Episodes: {season.episodeCount}</h3>
-</Link>
-    
+              <h2 className="text-2xl text-white font-bold tracking-wide">
+                {season.title}
+              </h2>
+              <h3 className="text-xl text-gray-400">Year: {season.year}</h3>
+              <h3 className="text-xl text-gray-400">
+                Episodes: {season.episodeCount}
+              </h3>
+            </Link>
           </div>
         );
       })}

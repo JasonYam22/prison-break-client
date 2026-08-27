@@ -19,11 +19,11 @@ function SeasonDetailPage() {
   const getSeasonData = async () => {
     try {
       const seasonResponse = await axios.get(
-     `${import.meta.env.VITE_API_URL}/seasons/${seasonId}`,
+        `${import.meta.env.VITE_API_URL}/seasons/${seasonId}`,
       );
 
       const characterResponse = await axios.get(
-      `${import.meta.env.VITE_API_URL}/characters`,
+        `${import.meta.env.VITE_API_URL}/characters`,
       );
       setSeason(seasonResponse.data);
       setAllCharacters(characterResponse.data);
@@ -31,44 +31,54 @@ function SeasonDetailPage() {
     } catch (error) {
       console.log(error);
 
-     if (error.response && error.response.status === 404) {
+      if (error.response && error.response.status === 404) {
         navigate("/not-found");
       } else {
         navigate("/error");
       }
     }
   };
-if (isLoading) {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <CircleLoader color="#f97316" size={60} />
-    </div>
-  );
-}
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircleLoader color="#f97316" size={60} />
+      </div>
+    );
+  }
 
   const seasonCharacters = allCharacters.filter((character) => {
     return season.characterIds.includes(character.id);
   });
 
   console.log("season:", season);
-console.log("allCharacters:", allCharacters);
-console.log("seasonCharacters:", seasonCharacters);
-
+  console.log("allCharacters:", allCharacters);
+  console.log("seasonCharacters:", seasonCharacters);
 
   return (
-    <div className="flex flex-col pt-4 text-center">
+    <div className="flex flex-col pt-4 text-center text-2xl">
       <h2 className="font-extrabold text-orange-300">{season.title}</h2>
-      <h2><span className="font-extrabold text-orange-300">Year:</span> {season.year}</h2>
-      <h2><span className="font-extrabold text-orange-300">Episodes:</span> {season.episodeCount}</h2>
-      <p className="text-2xs"><span className="font-extrabold text-orange-300">Description:</span> {season.description}</p>
-      <h3 className="pt-8 text-2xl font-bold text-orange-300">Included in this season:</h3>
-      <div className="grid grid-cols-4 gap-8 p-4">
+      <h2>
+        <span className="font-extrabold text-orange-300">Year:</span>{" "}
+        {season.year}
+      </h2>
+      <h2>
+        <span className="font-extrabold text-orange-300">Episodes:</span>{" "}
+        {season.episodeCount}
+      </h2>
+      <p className="text-2xs">
+        <span className="font-extrabold text-orange-300">Description:</span>{" "}
+        {season.description}
+      </p>
+      <h3 className="pt-8 pb-4 text-2xl font-bold text-orange-300">
+        Included in this season:
+      </h3>
+      <div className="grid grid-cols-4 gap-12 px-20">
         {seasonCharacters.map((character) => {
-          return <CharacterCard key={character.id} character={character} />
+          return <CharacterCard key={character.id} character={character} />;
         })}
       </div>
     </div>
   );
 }
 
-export default SeasonDetailPage
+export default SeasonDetailPage;
