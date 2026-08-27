@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import EditCharacterPage from "./EditCharacterPage";
+import { CircleLoader } from "react-spinners";
 
 function CharacterDetailPage() {
   const { characterId } = useParams();
@@ -56,9 +57,13 @@ function CharacterDetailPage() {
  const handleEditButton = () => {
       navigate(`/characters/${characterId}/edit`)
  }
- if (isLoading) {
-    return <h2>Loading...</h2>;
- }
+if (isLoading) {
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <CircleLoader color="#f97316" size={60} />
+    </div>
+  );
+}
 
   return (
     <div className="bg-gray-800 border border-green-800 rounded-2xl p-6
@@ -75,8 +80,8 @@ function CharacterDetailPage() {
        </div>
       <h3 className="mt-6 pt-4 border-t border-black-100"><span className="text-orange-500 font-bold">Description: </span>{character.description}</h3>
       <div className="flex justify-center mt-7 ml-9">
-      <button onClick={handleDeleteButton} className="mr-16 border border-black rounded-2xl bg-red-800 text-black font-bold pl-3 pr-3 pt-1 pb-1 hover:bg-red-200">Delete</button>
-            <button onClick={handleEditButton} className="mr-16 border border-white rounded-2xl bg-green-800 text-black font-bold pl-6 pr-6 pt-1 pb-1 hover:bg-green-400">Edit</button>
+      <button onClick={handleDeleteButton} className="mr-16 border border-black rounded-2xl bg-red-800 text-black font-bold pl-3 pr-3 pt-1 hover:bg-red-200 hover:scale-120 transition-all duration-300">Delete</button>
+            <button onClick={handleEditButton} className="mr-16 border border-white rounded-2xl bg-green-800 text-black font-bold pl-6 pr-6 pt-1  hover:bg-green-400 hover:scale-120 transition-all duration-300">Edit</button>
             </div>
     </div>
   );

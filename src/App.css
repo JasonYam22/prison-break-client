@@ -1,7 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
---font-sans: 'Oswald', sans-serif;
+  --font-sans: 'Teko', sans-serif;
 }
 
 body {
@@ -10,12 +12,15 @@ body {
   color: #ffffff;
 }
 
+html {
+  font-size: 130.5%; /* entspricht ca. 18px statt 16px Basis */
+}
+
 textarea::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge, and Firefox */
 textarea {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }

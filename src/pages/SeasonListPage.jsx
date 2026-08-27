@@ -2,6 +2,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";
+import { CircleLoader } from "react-spinners";
 
 function SeasonListPage() {
   const navigate = useNavigate();
@@ -28,19 +29,26 @@ function SeasonListPage() {
       }
     }
   };
-  if (isLoading) return <h3>Loading...</h3>;
+if (isLoading) {
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <CircleLoader color="#f97316" size={60} />
+    </div>
+  );
+}
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 p6 justify-items-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 max-w-6xl mx-auto">
       {allSeasons.map((season) => {
         return (
          
-          <div key={season.id} className="flex flex-col items-center text-center gap-2 border border-amber-400 py-4 m-5 rounded-3xl h-45 w-40 bg-gray-700">
-            <h2>{season.title}</h2>
-            <h3>Year: {season.year}</h3>
-            <h3>Episodes: {season.episodeCount}</h3>
-
-        <Link to={`/seasons/${season.id}`} className="w-fit px-2 py-0 border rounded-2xl text-white-700  border-blue-500 hover:bg-blue-300 hover:scale-105 shadow-lg transition mt-4">Season {season.id} details</Link>
+          <div key={season.id} className="flex flex-col items-center text-center gap-2 border border-gray-700 py-6 px-4 rounded-xl h-auto w-64 bg-gray-900 hover:scale-110 shadow-lg hover:bg-blue-700 hover:border-blue-500 transition-all duration-300">
+            <Link to={`/seasons/${season.id}`}>
+            <h2 className="text-2xl text-white font-bold tracking-wide">{season.title}</h2>
+            <h3 className="text-sm text-gray-400">Year: {season.year}</h3>
+            <h3 className="text-sm text-gray-400">Episodes: {season.episodeCount}</h3>
+</Link>
+    
           </div>
         );
       })}

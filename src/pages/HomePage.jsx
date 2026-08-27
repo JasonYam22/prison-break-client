@@ -3,28 +3,36 @@ import { Link } from "react-router-dom";
 function HomePage() {
   return (
     <div className="home-page p-6">
-      <div className="flex items-start gap-8">
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu6U2sIVmS4odBfzsIj8koZI7_CHbOw2_TwHlWcWfnJg&s=10"
           alt="Prison Break"
-          className="w-80 rounded-lg object-cover"
+          className="w-full max-w-xs lg:w-80"
         />
         <div className="flex-1 flex flex-col items-center gap 6">
-          <nav className="flex flex-row items-center gap-1 border-2 border-white rounded-full px-1 py-1 mb-6">
+          <nav className="flex flex-wrap justify-center items-center gap-1 border-2 border-white rounded-full px-1 py-1 mb-6">
             <Link
               to="/characters"
-              className="rounded-full px-30 py-2 hover:bg-gray-600 hover:scale-100 hover:text-2xl transition"
+              className="rounded-full px-4 sm:px-8 lg:px-16 py-2 hover:bg-gray-600 hover:scale-105 hover:text-2xl transition-all duration-80"
             >
               Characters
             </Link>
+
+ <Link
+              to="/actors"
+              className="rounded-full px-4 sm:px-8 lg:px-16 py-2 hover:bg-gray-600 hover:scale-105 hover:text-2xl transition-all duration-80"
+            >
+              Actors
+            </Link>
+
             <Link
               to="/prisons"
-              className="rounded-full px-30 py-2 hover:bg-gray-600 hover:scale-100 hover:text-2xl transition"
+              className="rounded-full px-4 sm:px-8 lg:px-16 py-2 hover:bg-gray-600 hover:scale-105 hover:text-2xl transition-all duration-80"
             >
               Prisons
             </Link>
 <Link
-to="/seasons" className="rounded-full px-30 py-2 hover:bg-gray-600 hover:scale-100 hover:text-2xl transition">Seasons</Link>
+to="/seasons" className="rounded-full px-4 sm:px-8 lg:px-16 py-2 hover:bg-gray-600 hover:scale-105 hover:text-2xl transition-all duration-80">Seasons</Link>
           </nav>
 
           <div className=" mt-6 w-full max-w-xl aspect-video rounded-2xl overflow-hidden border border-gray-400 shadow-2xl bg-black">
@@ -38,7 +46,7 @@ to="/seasons" className="rounded-full px-30 py-2 hover:bg-gray-600 hover:scale-1
       </div>
 
       <div className="description-section max-w-2x1 pt-6">
-        <h1 className="text-2x1 font-bold mb-6 text-orange-500">WHAT IS PRISON BREAK ABOUT?</h1>
+        <h1 className="text-3xl font-bold mb-6 mt-10 text-orange-500">WHAT IS PRISON BREAK ABOUT?</h1>
         <p className="leading-relaxed text-white text-2xl">
           {" "}
           Prison Break follows Michael Scofield, a structural engineer who

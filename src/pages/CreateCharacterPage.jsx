@@ -37,7 +37,7 @@ function createCharacterPage() {
     <div className="bg-gray-800 border border-green-800 rounded-2xl p-6
      text-white w-150 mx-auto mt-10 mb-10 flex flex-col">
 
-    <h3 className="text-2xl font-bold mb-6 text-center text-orange-500">Edit Profile</h3>
+    <h3 className="text-2xl font-bold mb-6 text-center text-orange-500">Create Profile</h3>
 
  <form onSubmit={handleSubmitButton} className="space-y-1">
 
@@ -95,7 +95,7 @@ function createCharacterPage() {
         />
 </div>
 <div className="flex justify-center">
-        <button className=" border border-black pl-12 pr-12 pt-2 pb-2 mt-4 hover:bg-green-200 bg-green-500 rounded-3xl  "
+        <button className=" border border-black pl-12 pr-12 pt-2 pb-2 mt-4 hover:bg-green-300 bg-green-500 rounded-3xl text-2xl transition-all duration-300 hover:scale-110"
          type="submit">Submit</button>
 </div>
       </form>

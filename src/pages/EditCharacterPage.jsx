@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
-
+import { CircleLoader } from "react-spinners";
 
 function EditCharacterPage() {
 
@@ -13,6 +13,7 @@ function EditCharacterPage() {
      const [ role, setRole ] = useState("")
       const [ description, setDescription ] = useState("")
 const [ image, setImage] = useState("")
+const [ isLoading, setIsLoading ] = useState(true)
       
       useEffect(() =>{
  getData()  
@@ -27,6 +28,7 @@ const [ image, setImage] = useState("")
         setRole(response.data.role)
         setDescription(response.data.description) 
         setImage(response.data.image)
+        setIsLoading(false)
         } catch (error) {
             console.log(error)
         }
@@ -50,6 +52,13 @@ const response = await axios.put (`${import.meta.env.VITE_API_URL}/characters/${
 } catch (error) {
     console.log(error)
 }
+}
+if (isLoading) {
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <CircleLoader color="#f97316" size={60} />
+    </div>
+  );
 }
   return (
   <div className="bg-gray-800 border border-green-800 rounded-2xl p-6
@@ -109,11 +118,11 @@ const response = await axios.put (`${import.meta.env.VITE_API_URL}/characters/${
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-           className="w-full bg-gray border border-gray-700 rounded-3xl p-1 text-white resize-none overflow-y-auto"
+           className="w-full bg-gray border border-gray-700 rounded-3xl p-1 text-white overflow-y-auto"
         />
 </div>
 <div className="flex justify-center">
-        <button className=" border border-black pl-12 pr-12 pt-2 pb-2 mt-4 hover:bg-green-200 bg-green-500 rounded-3xl  "
+        <button className=" border border-black pl-12 pr-12 pt-2 pb-2 mt-4 hover:bg-green-400 bg-green-700 rounded-3xl text-2xl hover:scale-110 transition-all duration-300"
          type="submit">Submit</button>
 </div>
       </form>

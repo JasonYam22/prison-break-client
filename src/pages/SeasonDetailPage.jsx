@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import CharacterCard from "../components/CharacterCard";
+import { CircleLoader } from "react-spinners";
 
 function SeasonDetailPage() {
   const { seasonId } = useParams();
@@ -37,7 +38,13 @@ function SeasonDetailPage() {
       }
     }
   };
-  if (isLoading) return <h3>Loading...</h3>;
+if (isLoading) {
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <CircleLoader color="#f97316" size={60} />
+    </div>
+  );
+}
 
   const seasonCharacters = allCharacters.filter((character) => {
     return season.characterIds.includes(character.id);

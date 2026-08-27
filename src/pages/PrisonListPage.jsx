@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { CircleLoader } from "react-spinners";
 
 function PrisonListPage() {
   const [allPrisons, setAllPrisons] = useState([]);
@@ -19,7 +20,13 @@ function PrisonListPage() {
       console.log(error);
     }
   };
-  if (isLoading) return <h3>Loading...</h3>;
+  if (isLoading) {
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <CircleLoader color="#f97316" size={60} />
+    </div>
+  );
+}
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4 mx-auto">

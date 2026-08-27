@@ -4,13 +4,13 @@ function Searchbar({ query, setQuery }) {
   };
 
   return (
-    <div className="search-bar">
+    <div className="hover:scale-110 transition-all duration-300">
       <input
         type="text"
         placeholder="Search character..."
         onChange={handleSearch}
         value={query}
-        className="border border-white rounded-full pl-5 pr-20 py-2 bg-transparent text-white placeholder-gray-400"
+        className="border border-white rounded-full pl-5 pr-10 py-2 bg-transparent text-white placeholder-grays-400"
       />
     </div>
   );
